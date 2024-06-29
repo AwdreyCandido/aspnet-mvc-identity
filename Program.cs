@@ -11,6 +11,11 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
        .AddEntityFrameworkStores<AppDbContext>();
 
+// Configure application coockie settings
+builder.Services.ConfigureApplicationCookie(
+    options => { options.LoginPath = "/Account/Login"; }
+);
+
 // Database Connection
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
