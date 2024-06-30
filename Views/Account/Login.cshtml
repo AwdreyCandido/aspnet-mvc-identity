@@ -2,20 +2,21 @@
 
 @{
     ViewBag.Title = "User Login";
+
 }
 
-<h1>User Login</h1>
 
-<div>
-    <div>
+<div class="row flex-column align-items-center">
+    <div class="col-md-12 w-50">
+        <h1>User Login</h1>
         <form method="post" asp-controller="account" asp-action="login">
-            <input type="hidden" name="ReturnUrl" value="@ViewData[ReturnUrl]" />
+            <input type="hidden" name="ReturnUrl" value="@ViewData["ReturnUrl"]" />
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Email"></label>
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
-            </div>            
+            </div>
             <div class="form-group">
                 <label asp-for="Password"></label>
                 <input asp-for="Password" class="form-control" />
@@ -24,7 +25,7 @@
             <div>
                 <div class="checkbox">
                     <label asp-for="RememberMe">
-                        <input asp-for="RememberMe"/>
+                        <input asp-for="RememberMe" />
                         @Html.DisplayNameFor(m => m.RememberMe)
                     </label>
                 </div>
